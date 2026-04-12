@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.ScrollPane?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nickolas.medicalassistanceapp.controllers.LessonController"
+      spacing="15"
+      styleClass="lesson-container">
+
+    <Label text="Уроки першої допомоги"
+           styleClass="page-title"/>
+
+    <ScrollPane fitToWidth="true">
+
+        <VBox fx:id="lessonContainer"
+              spacing="15"/>
+
+    </ScrollPane>
+
+</VBox>

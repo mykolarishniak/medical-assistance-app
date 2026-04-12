@@ -1,0 +1,29 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nickolas.medicalassistanceapp.controllers.AdminLessonController">
+
+    <left>
+        <ListView fx:id="lessonList" prefWidth="300"/>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+
+            <Label text="Назва уроку"/>
+            <TextField fx:id="titleField"/>
+
+            <Label text="Вміст уроку"/>
+            <TextArea fx:id="contentArea" prefHeight="400"/>
+
+            <HBox spacing="10">
+                <Button text="Додати" onAction="#addLesson"/>
+                <Button text="Оновити" onAction="#updateLesson"/>
+                <Button text="Видалити" onAction="#deleteLesson"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

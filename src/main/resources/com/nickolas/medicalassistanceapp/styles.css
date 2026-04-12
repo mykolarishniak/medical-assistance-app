@@ -1,0 +1,255 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.title {
+    -fx-font-size: 26px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-btn {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.menu-btn:hover {
+    -fx-background-color: #1abc9c;
+}
+
+.main-btn {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20 10 20;
+}
+
+.main-btn:hover {
+    -fx-background-color: #c0392b;
+}
+
+.top-bar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+}
+
+
+
+
+
+.lesson-card:hover {
+    -fx-background-color: #ecf0f1;
+}
+
+.lesson-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+
+
+.open-btn:hover {
+    -fx-background-color: #2ecc71;
+}
+
+.back-btn {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+/* фон головної */
+.home-background {
+    -fx-background-image: url("images/hospital.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.overlay {
+    -fx-background-color: rgba(0,0,0,0.45);
+    -fx-padding: 40;
+}
+
+.title {
+    -fx-font-size: 36px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: #f0f0f0;
+}
+
+.page-title {
+    -fx-text-fill: black; /* FIX */
+}
+
+.lesson-card {
+    -fx-background-color: white;
+    -fx-padding: 15 20;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-spacing: 12;
+}
+
+.lesson-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.open-btn {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.root {
+    -fx-background-color: linear-gradient(to bottom, #f5f7fa, #e4ecf3);
+}
+
+.top-bar {
+    -fx-padding: 15 20;
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+}
+
+.back-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 8;
+}
+
+.back-button:hover {
+    -fx-background-color: #45a049;
+}
+
+.lesson-root {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #eef2f7);
+}
+
+.top-bar {
+    -fx-padding: 15 30;
+}
+
+.back-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2563eb;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.back-btn:hover {
+    -fx-text-fill: #1d4ed8;
+}
+
+.lesson-content-wrapper {
+    -fx-padding: 40 80;
+}
+
+.lesson-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.lesson-text {
+    -fx-font-size: 16px;
+    -fx-text-fill: #334155;
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+    -fx-control-inner-background: transparent;
+}
+
+.nav-buttons {
+    -fx-padding: 40 0 20 0;
+}
+
+.nav-btn {
+    -fx-background-color: linear-gradient(to right, #38bdf8, #0ea5e9);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22;
+    -fx-background-radius: 12;
+}
+
+.nav-btn:hover {
+    -fx-background-color: linear-gradient(to right, #0ea5e9, #0284c7);
+}
+
+.nav-btn:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.list-view {
+    -fx-background-color: #f4f6f8;
+}
+
+.text-field, .text-area {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+.lesson-title {
+    -fx-font-size: 18px;
+}
+
+.answer-btn {
+    -fx-background-color: white;
+    -fx-border-color: #2196F3;
+    -fx-border-radius: 8;
+    -fx-padding: 12 20;
+    -fx-font-size: 14px;
+}
+
+.answer-btn:hover {
+    -fx-background-color: #E3F2FD;
+}
+
+.test-btn {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+.question-text {
+    -fx-font-size: 22px;
+    -fx-text-fill: #0d47a1;
+    -fx-font-weight: bold;
+}
+
+.answer-btn {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: #2196F3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-font-size: 15px;
+}
+
+.answer-btn:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.result-text {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

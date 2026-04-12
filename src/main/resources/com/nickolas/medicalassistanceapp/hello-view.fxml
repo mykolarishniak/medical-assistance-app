@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.nickolas.medicalassistanceapp.controllers.HelloController"
+           styleClass="home-background">
+
+    <VBox alignment="CENTER"
+          spacing="20"
+          styleClass="overlay">
+
+        <Label text="Програма навчання першої допомоги"
+               styleClass="title"/>
+
+        <Label text="Вивчай, перевіряй знання та будь готовим допомогти"
+               styleClass="subtitle"/>
+
+    </VBox>
+
+</StackPane>

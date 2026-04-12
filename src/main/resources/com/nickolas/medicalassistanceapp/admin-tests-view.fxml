@@ -1,0 +1,35 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nickolas.medicalassistanceapp.controllers.AdminTestController">
+
+    <left>
+        <ListView fx:id="questionList" prefWidth="300"/>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+
+            <Label text="Питання"/>
+            <TextField fx:id="questionField"/>
+
+            <Label text="Lesson ID"/>
+            <TextField fx:id="lessonIdField"/>
+
+            <Label text="Відповіді (3 через ;)"/>
+            <TextField fx:id="answersField"/>
+
+            <Label text="Правильна (1,2,3)"/>
+            <TextField fx:id="correctIndexField"/>
+
+            <HBox spacing="10">
+                <Button text="Додати" onAction="#addQuestion"/>
+                <Button text="Оновити" onAction="#updateQuestion"/>
+                <Button text="Видалити" onAction="#deleteQuestion"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

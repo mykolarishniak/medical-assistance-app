@@ -1,0 +1,50 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nickolas.medicalassistanceapp.controllers.LessonDetailController"
+            styleClass="lesson-root">
+
+    <top>
+        <HBox styleClass="top-bar">
+            <Button text="← Назад" styleClass="back-btn" onAction="#goBack"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="lesson-scroll">
+
+            <VBox spacing="20" styleClass="lesson-wrapper">
+
+                <Label fx:id="title" styleClass="lesson-title"/>
+
+                <Label fx:id="content"
+                       wrapText="true"
+                       styleClass="lesson-text"/>
+                <HBox styleClass="nav-buttons">
+
+                    <Button fx:id="prevBtn"
+                            text="← Попередній"
+                            onAction="#prevLesson"
+                            styleClass="nav-btn"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button fx:id="nextBtn"
+                            text="Наступний →"
+                            onAction="#nextLesson"
+                            styleClass="nav-btn"/>
+
+                </HBox>
+
+            </VBox>
+
+        </ScrollPane>
+    </center>
+
+</BorderPane>
