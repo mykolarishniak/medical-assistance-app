@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="15"
+      alignment="CENTER"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nickolas.medicalassistanceapp.controllers.RegisterController"
+      styleClass="auth-root">
+
+    <Label text="Реєстрація" styleClass="auth-title"/>
+
+    <TextField fx:id="usernameField"
+               promptText="Логін"
+               maxWidth="250"/>
+
+    <PasswordField fx:id="passwordField"
+                   promptText="Пароль"
+                   maxWidth="250"/>
+
+    <Button text="Зареєструватись"
+            onAction="#register"
+            maxWidth="250"/>
+
+
+
+    <Label fx:id="errorLabel"
+           style="-fx-text-fill: red;"/>
+
+</VBox>

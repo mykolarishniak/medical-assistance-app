@@ -17,6 +17,13 @@
             <Button text="Прогрес" onAction="#showProgress"/>
             <Button text="Адмін" onAction="#showAdmin"/>
 
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="userLabel" text="Гість" styleClass="user-label"/>
+            <Button text="Увійти" onAction="#openLogin" fx:id="loginBtn"/>
+            <Button text="Реєстрація" onAction="#openRegister" fx:id="registerBtn"/>
+            <Button text="Вийти" onAction="#logout" fx:id="logoutBtn" visible="false"/>
+
         </HBox>
     </top>
 

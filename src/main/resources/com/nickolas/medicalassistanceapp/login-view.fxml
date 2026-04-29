@@ -1,0 +1,20 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="15"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nickolas.medicalassistanceapp.controllers.LoginController"
+      styleClass="auth-root">
+
+    <Label text="Вхід" styleClass="auth-title"/>
+
+    <TextField fx:id="usernameField" promptText="Логін" styleClass="input-light"/>
+    <PasswordField fx:id="passwordField" promptText="Пароль" styleClass="input-light"/>
+
+    <Button text="Увійти" onAction="#login" styleClass="primary-btn-light"/>
+
+    <Label fx:id="errorLabel" styleClass="error-label"/>
+
+</VBox>
