@@ -106,7 +106,22 @@ public class MainController {
 
     @FXML
     private void showProgress() {
-        loadPage("hello-view.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/nickolas/medicalassistanceapp/progress-view.fxml")
+            );
+
+            Node node = loader.load();
+
+            ProgressController controller = loader.getController();
+
+            controller.refresh();
+
+            contentArea.getChildren().setAll(node);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+
+<VBox spacing="25"
+      alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.nickolas.medicalassistanceapp.controllers.ProgressController"
+      styleClass="lesson-root">
+
+    <Label text="Ваш прогрес"
+           styleClass="title"/>
+
+    <VBox spacing="15" alignment="CENTER">
+
+        <ProgressBar fx:id="progressBar"
+                     prefWidth="300"/>
+
+        <Label fx:id="percentLabel"
+               text="0%"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+        <Label fx:id="lessonsLabel"
+               text="Уроків пройдено: 0/0"
+               style="-fx-font-size: 14px;"/>
+
+        <Label fx:id="testsLabel"
+               text="Тестів пройдено: 0"
+               style="-fx-font-size: 14px;"/>
+
+    </VBox>
+
+</VBox>

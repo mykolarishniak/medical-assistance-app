@@ -1,6 +1,8 @@
 package com.nickolas.medicalassistanceapp.controllers;
 
+import com.nickolas.medicalassistanceapp.dao.ProgressDAO;
 import com.nickolas.medicalassistanceapp.model.Lesson;
+import com.nickolas.medicalassistanceapp.session.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +32,7 @@ public class LessonDetailController {
 
     private List<Lesson> lessons;
     private int currentIndex;
+    private final ProgressDAO progressDAO = new ProgressDAO();
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -53,6 +56,7 @@ public class LessonDetailController {
 
     @FXML
     private void nextLesson() {
+        markLessonAsRead();
         if (currentIndex < lessons.size() - 1) {
             currentIndex++;
             showLesson();
@@ -69,6 +73,19 @@ public class LessonDetailController {
 
     @FXML
     private void goBack() {
+        markLessonAsRead();
         mainController.showLessons();
+    }
+
+    private void markLessonAsRead() {
+
+        if (!Session.isLoggedIn()) return;
+
+        Lesson lesson = lessons.get(currentIndex);
+
+        progressDAO.markLessonRead(
+                Session.getCurrentUser().getId(),
+                lesson.getId()
+        );
     }
 }

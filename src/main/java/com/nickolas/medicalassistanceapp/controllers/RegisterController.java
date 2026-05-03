@@ -35,11 +35,17 @@ public class RegisterController {
             return;
         }
 
-        User user = new User(0, username, password, "USER");
+//        User user = new User(0, username, password, "USER");
 
-        dao.register(user);
+//        dao.register(user);
+//
+//        Session.login(user);
 
-        Session.login(user);
+        User tempUser = new User(0, username, password, "USER");
+
+        User savedUser = dao.register(tempUser);
+
+        Session.login(savedUser);
 
         mainController.updateUserUI();
 

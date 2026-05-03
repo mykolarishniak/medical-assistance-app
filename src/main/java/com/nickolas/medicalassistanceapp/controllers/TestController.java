@@ -1,10 +1,12 @@
 package com.nickolas.medicalassistanceapp.controllers;
 
 import com.nickolas.medicalassistanceapp.dao.AnswerDAO;
+import com.nickolas.medicalassistanceapp.dao.ProgressDAO;
 import com.nickolas.medicalassistanceapp.dao.QuestionDAO;
 import com.nickolas.medicalassistanceapp.model.Answer;
 import com.nickolas.medicalassistanceapp.model.Lesson;
 import com.nickolas.medicalassistanceapp.model.Question;
+import com.nickolas.medicalassistanceapp.session.Session;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,6 +53,16 @@ public class TestController {
             questionLabel.setText("Тест завершено!");
             answersBox.getChildren().clear();
             resultLabel.setText("Ваш результат: " + score + "/" + questions.size());
+            if (Session.isLoggedIn()) {
+                ProgressDAO dao = new ProgressDAO();
+
+                dao.saveTestResult(
+                        Session.getCurrentUser().getId(),
+                        lesson.getId(),
+                        score,
+                        questions.size()
+                );
+            }
             return;
         }
 

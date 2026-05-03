@@ -27,12 +27,11 @@ public class UserDAO {
         return false;
     }
 
-    public void register(User user) {
-        try (Connection conn = Database.getConnection()) {
+    public User register(User user) {
+        String sql = "INSERT INTO users(username, password, role) VALUES (?, ?, ?)";
 
-            PreparedStatement ps = conn.prepareStatement(
-                    "INSERT INTO users(username, password, role) VALUES (?, ?, ?)"
-            );
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
@@ -40,9 +39,19 @@ public class UserDAO {
 
             ps.executeUpdate();
 
+            ResultSet rs = ps.getGeneratedKeys();
+
+            if (rs.next()) {
+                int id = rs.getInt(1);
+
+                return new User(id, user.getUsername(), user.getPassword(), user.getRole());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     public User login(String username, String password) {
