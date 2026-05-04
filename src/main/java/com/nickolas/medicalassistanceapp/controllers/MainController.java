@@ -54,6 +54,9 @@ public class MainController {
             if (controller instanceof RegisterController registerController) {
                 registerController.setMainController(this);
             }
+            if (controller instanceof TestController testController) {
+                testController.setMainController(this);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +98,7 @@ public class MainController {
     }
 
     @FXML
-    private void showTests() {
+    void showTests() {
         loadPage("test-list-view.fxml");
     }
 

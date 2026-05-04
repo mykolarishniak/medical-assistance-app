@@ -59,7 +59,10 @@ public class TestListController {
             TestController controller = loader.getController();
             controller.setLesson(lesson);
 
+            controller.setMainController(mainController);
+
             mainController.setContent(node);
+
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -52,6 +52,9 @@ public class LessonDetailController {
 
         prevBtn.setVisible(currentIndex > 0);
         nextBtn.setVisible(currentIndex < lessons.size() - 1);
+        if (currentIndex == lessons.size() - 1) {
+            markLessonAsRead();
+        }
     }
 
     @FXML

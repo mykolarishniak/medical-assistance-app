@@ -1,11 +1,14 @@
 package com.nickolas.medicalassistanceapp.dao;
 
 import com.nickolas.medicalassistanceapp.db.Database;
+import com.nickolas.medicalassistanceapp.model.ProgressDetail;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressDAO {
 public void markLessonCompleted(int userId, int lessonId) {
@@ -175,5 +178,50 @@ public void markLessonCompleted(int userId, int lessonId) {
             e.printStackTrace();
         }
         return 0;
+    }
+    public void resetProgress(int userId) {
+        String sql = "DELETE FROM user_progress WHERE user_id=?";
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public List<ProgressDetail> getProgressDetails(int userId) {
+        List<ProgressDetail> list = new ArrayList<>();
+
+        String sql = """
+        SELECT l.title, up.lesson_completed, up.correct_answers, up.total_questions
+        FROM lessons l
+        LEFT JOIN user_progress up 
+            ON l.id = up.lesson_id AND up.user_id = ?
+    """;
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new ProgressDetail(
+                        rs.getString("title"),
+                        rs.getBoolean("lesson_completed"),
+                        rs.getInt("correct_answers"),
+                        rs.getInt("total_questions")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

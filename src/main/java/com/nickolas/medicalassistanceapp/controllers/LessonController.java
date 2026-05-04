@@ -88,6 +88,7 @@ public class LessonController {
             Node node = loader.load();
 
             TestController controller = loader.getController();
+            controller.setMainController(mainController);
             controller.setLesson(lesson);
 
             mainController.setContent(node);

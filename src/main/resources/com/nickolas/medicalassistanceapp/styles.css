@@ -53,7 +53,6 @@
     -fx-font-family: "Segoe UI", "Arial";
 }
 
-/* фон головної */
 .home-background {
     -fx-background-image: url("images/hospital.jpg");
     -fx-background-size: cover;
@@ -283,4 +282,12 @@
     -fx-background-color: rgba(255,255,255,0.15);
     -fx-padding: 5 10;
     -fx-background-radius: 10;
+}
+
+.progress-bar {
+    -fx-accent: #4CAF50;
+}
+
+.progress-bar .track {
+    -fx-background-color: #ddd;
 }

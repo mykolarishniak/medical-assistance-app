@@ -2,6 +2,7 @@ package com.nickolas.medicalassistanceapp.dao;
 
 import com.nickolas.medicalassistanceapp.db.Database;
 import com.nickolas.medicalassistanceapp.model.Answer;
+import com.nickolas.medicalassistanceapp.model.AnswerDetail;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -102,5 +103,37 @@ public class AnswerDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public List<AnswerDetail> getUserAnswers(int userId) {
+
+        List<AnswerDetail> list = new ArrayList<>();
+
+        String sql = """
+    SELECT q.question, ua.selected_answer, ua.correct_answer, ua.is_correct
+    FROM user_answers ua
+    JOIN questions q ON ua.question_id = q.id
+    WHERE ua.user_id = ?
+""";
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new AnswerDetail(
+                        rs.getString("question"),
+                        rs.getString("selected_answer"),
+                        rs.getString("correct_answer"),
+                        rs.getBoolean("is_correct")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

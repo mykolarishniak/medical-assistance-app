@@ -3,6 +3,7 @@ package com.nickolas.medicalassistanceapp.controllers;
 import com.nickolas.medicalassistanceapp.dao.AnswerDAO;
 import com.nickolas.medicalassistanceapp.dao.ProgressDAO;
 import com.nickolas.medicalassistanceapp.dao.QuestionDAO;
+import com.nickolas.medicalassistanceapp.dao.UserAnswerDAO;
 import com.nickolas.medicalassistanceapp.model.Answer;
 import com.nickolas.medicalassistanceapp.model.Lesson;
 import com.nickolas.medicalassistanceapp.model.Question;
@@ -24,6 +25,8 @@ public class TestController {
 
     @FXML
     private Label resultLabel;
+    @FXML
+    private Button backButton;
 
     private List<Question> questions;
     private int currentIndex = 0;
@@ -31,6 +34,8 @@ public class TestController {
 
     private final QuestionDAO questionDAO = new QuestionDAO();
     private final AnswerDAO answerDAO = new AnswerDAO();
+    private final UserAnswerDAO userAnswerDAO = new UserAnswerDAO();
+    private MainController mainController;
 
     private Lesson lesson;
 
@@ -87,6 +92,16 @@ public class TestController {
     }
 
     private void checkAnswer(Answer answer) {
+        Question q = questions.get(currentIndex);
+
+        if (Session.isLoggedIn()) {
+            userAnswerDAO.saveAnswer(
+                    Session.getCurrentUser().getId(),
+                    q.getId(),
+                    answer.getAnswer(),
+                    getCorrectAnswer(q.getId())
+            );
+        }
 
         if (answer.isCorrect()) {
             resultLabel.setText("✔ Правильно");
@@ -105,5 +120,26 @@ public class TestController {
                 e.printStackTrace();
             }
         }).start();
+    }
+    private String getCorrectAnswer(int questionId) {
+        List<Answer> answers = answerDAO.getByQuestion(questionId);
+
+        for (Answer a : answers) {
+            if (a.isCorrect()) {
+                return a.getAnswer();
+            }
+        }
+        return "";
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    @FXML
+    private void handleBack() {
+        if (mainController != null) {
+            mainController.showTests();
+        }
     }
 }

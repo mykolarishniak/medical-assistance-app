@@ -1,35 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 
-<VBox spacing="25"
-      alignment="CENTER"
+<VBox spacing="20"
+      alignment="TOP_CENTER"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.nickolas.medicalassistanceapp.controllers.ProgressController"
-      styleClass="lesson-root">
+      style="-fx-padding: 20; -fx-background-color: #f4f6f8;">
 
     <Label text="Ваш прогрес"
-           styleClass="title"/>
+           style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
 
-    <VBox spacing="15" alignment="CENTER">
+    <VBox spacing="10" alignment="CENTER" maxWidth="500">
 
         <ProgressBar fx:id="progressBar"
-                     prefWidth="300"/>
+                     maxWidth="Infinity"
+                     minWidth="250"
+                     prefWidth="400"
+                     style="-fx-accent: #4CAF50;"/>
 
         <Label fx:id="percentLabel"
                text="0%"
-               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
+    </VBox>
+
+    <HBox spacing="40" alignment="CENTER">
         <Label fx:id="lessonsLabel"
-               text="Уроків пройдено: 0/0"
                style="-fx-font-size: 14px;"/>
 
         <Label fx:id="testsLabel"
-               text="Тестів пройдено: 0"
                style="-fx-font-size: 14px;"/>
+    </HBox>
 
-    </VBox>
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background: transparent;">
+
+        <VBox spacing="15" style="-fx-padding: 10;">
+
+            <VBox spacing="5">
+                <Label text="📚 Уроки"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <ListView fx:id="detailsList"
+                          prefHeight="200"
+                          maxHeight="200"
+                          style="-fx-background-radius: 10;"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="🧠 Відповіді на тести"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <ListView fx:id="answersList"
+                          prefHeight="200"
+                          maxHeight="200"
+                          style="-fx-background-radius: 10;"/>
+            </VBox>
+
+        </VBox>
+
+    </ScrollPane>
+
+    <Button fx:id="resetButton"
+            text="Скинути прогрес"
+            onAction="#handleReset"
+            style="
+                -fx-background-color: #ff4d4d;
+                -fx-text-fill: white;
+                -fx-font-size: 14px;
+                -fx-padding: 8 20;
+                -fx-background-radius: 8;
+            "/>
 
 </VBox>
