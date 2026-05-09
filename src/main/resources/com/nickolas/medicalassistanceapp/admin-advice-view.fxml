@@ -1,0 +1,32 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nickolas.medicalassistanceapp.controllers.AdminAdviceController">
+
+    <left>
+        <ListView fx:id="adviceList" prefWidth="250"/>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+
+            <Label text="Симптом (keyword)"/>
+            <TextField fx:id="keywordField"/>
+
+            <Label text="Причини"/>
+            <TextArea fx:id="causesArea" prefHeight="100"/>
+
+            <Label text="Рекомендації"/>
+            <TextArea fx:id="recommendationArea" prefHeight="100"/>
+
+            <HBox spacing="10">
+                <Button text="Додати" onAction="#addAdvice"/>
+                <Button text="Оновити" onAction="#updateAdvice"/>
+                <Button text="Видалити" onAction="#deleteAdvice"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

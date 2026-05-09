@@ -12,6 +12,9 @@
         <Tab text="Тести">
             <fx:include source="admin-tests-view.fxml"/>
         </Tab>
+        <Tab text="Поради">
+            <fx:include source="admin-advice-view.fxml"/>
+        </Tab>
 
     </tabs>
 

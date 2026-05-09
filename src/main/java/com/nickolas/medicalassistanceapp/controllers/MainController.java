@@ -104,7 +104,7 @@ public class MainController {
 
     @FXML
     private void showAdvice() {
-        loadPage("hello-view.fxml");
+        loadPage("advice-view.fxml");
     }
 
     @FXML
